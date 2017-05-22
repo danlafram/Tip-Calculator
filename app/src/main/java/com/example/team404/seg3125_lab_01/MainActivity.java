@@ -15,42 +15,102 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
+    //All numeric variables
+
+    private int tipValue = 15;
+    private int pplValue = 4;
+
+
+    //All widget variables
+
+    EditText billAmount;
+
+    RadioGroup serviceRate;
+
+    TextView tipPercentage;
+    TextView numberOfPeople;
+
+    ImageButton tipIncrease;
+    ImageButton tipDecrease;
+    ImageButton pplInc;
+    ImageButton pplDec;
+
+    Button calculateButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText billAmount = (EditText) findViewById(R.id.billAmount);
+        tipPercentage = (TextView) findViewById(R.id.tipPercentageTxt);
+        numberOfPeople = (TextView) findViewById(R.id.numberPeopleTxt);
 
-        RadioGroup serviceRate = (RadioGroup) findViewById(R.id.serviceRateGroup);
+        billAmount = (EditText) findViewById(R.id.billAmount);
 
-        TextView numberOfPeople = (TextView) findViewById(R.id.numberPeopleTxt);
-        TextView tipPercentage = (TextView) findViewById(R.id.tipPercentageTxt);
+        serviceRate = (RadioGroup) findViewById(R.id.serviceRateGroup);
 
-        ImageButton tipIncrease = (ImageButton) findViewById(R.id.tipIncrease);
-        ImageButton tipDecrease = (ImageButton) findViewById(R.id.tipDecrease);
-        ImageButton pplInc = (ImageButton) findViewById(R.id.pplIncrease);
-        ImageButton pplDec= (ImageButton) findViewById(R.id.pplDecrease);
-
-        Button calculateButton = (Button) findViewById(R.id.calculateButton);
-
-
+        tipIncrease = (ImageButton) findViewById(R.id.tipIncrease);
+        tipDecrease = (ImageButton) findViewById(R.id.tipDecrease);
+        pplInc = (ImageButton) findViewById(R.id.pplIncrease);
+        pplDec = (ImageButton) findViewById(R.id.pplDecrease);
+        calculateButton  = (Button) findViewById(R.id.calculateButton);
     }
 
-    public static void incTip(){
-
+    /*
+     * Increases value of tip by 5%
+     */
+    public void incTip(View target){
+        tipValue += 5;
+        tipPercentage.setText(String.valueOf(tipValue));
     }
 
-    public static void decTip(){
-
+    /*
+     * Decreases value of tip by 5%
+     */
+    public void decTip(View target){
+        if(tipValue == 5){
+            //Do nothing, can't tip negative or 0%
+        } else {
+            tipValue -= 5;
+            tipPercentage.setText(String.valueOf(tipValue));
+        }
     }
 
-    public static void incPpl(){
-
+    /*
+     * Increases value of number of people by 1
+     */
+    public void incPpl(View target){
+        pplValue++;
+        numberOfPeople.setText(String.valueOf(pplValue));
     }
 
-    public static void decPpl(){
-        
+
+    /*
+     * Decreases value of number of people by 1
+     */
+    public void decPpl(View target){
+        if(pplValue == 1){
+            //Do nothing, cannot have 0 or negative number of people
+        } else {
+            pplValue--;
+            numberOfPeople.setText(String.valueOf(pplValue));
+        }
+    }
+
+    /*
+     * Calculates tip based on entered values and starts new activity
+     */
+    public void calculateTip(View target){
+        int bill = Integer.parseInt(billAmount.getText().toString());
+        int total = (bill*(tipValue/100)/pplValue);
+
+        Intent i = new Intent(this, DataDisplay.class);
+        i.putExtra("bill", bill);
+        i.putExtra("total", total);
+        i.putExtra("tip", tipValue);
+        i.putExtra("people", pplValue);
+
     }
 
 

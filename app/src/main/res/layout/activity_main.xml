@@ -29,35 +29,42 @@
         android:id="@+id/view" />
 
     <RadioGroup
+        android:id="@+id/serviceRateGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/serviceRateGroup"
         android:layout_above="@+id/textView2"
-        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/view3"
         android:layout_marginBottom="24dp"
-        android:layout_alignParentEnd="true">
+        android:orientation="horizontal"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
 
         <RadioButton
             android:id="@+id/badServiceRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_width="30dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:button="@drawable/v_dissatisfied" />
 
         <RadioButton
             android:id="@+id/goodServiceRadio"
             style="@android:style/Widget.Material.CompoundButton.RadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="85dp"
+            android:layout_weight="0.13"
+            android:button="@drawable/satisfied"
             android:checked="true"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/greatServiceRadio"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="90dp"
+            android:layout_weight="0.20"
+            android:button="@drawable/v_satisfied" />
     </RadioGroup>
 
     <TextView
@@ -129,7 +136,8 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/calculateButton"
@@ -139,6 +147,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView6"
         android:background="@android:color/background_light"
+        android:onClick="calculateTip"
         android:text="Calculate Tip"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp" />
@@ -189,11 +198,12 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/view5"
+        android:layout_below="@+id/view2"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="110dp"
         android:text="Tip Percentage"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="14dp"
-        android:layout_alignBottom="@+id/view5"
-        android:layout_alignEnd="@+id/textView11" />
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/textView13"
@@ -212,6 +222,7 @@
         android:layout_alignStart="@+id/textView2"
         android:layout_alignTop="@+id/tipPercentageTxt"
         android:background="@android:color/transparent"
+        android:onClick="incTip"
         app:srcCompat="@android:drawable/arrow_up_float" />
 
     <ImageButton
@@ -221,6 +232,7 @@
         android:layout_alignBottom="@+id/tipPercentageTxt"
         android:layout_alignStart="@+id/tipIncrease"
         android:background="@android:color/transparent"
+        android:onClick="decTip"
         app:srcCompat="@android:drawable/arrow_down_float" />
 
     <ImageButton
@@ -230,6 +242,7 @@
         android:layout_alignStart="@+id/pplDecrease"
         android:layout_alignTop="@+id/numberPeopleTxt"
         android:background="@android:color/transparent"
+        android:onClick="incPpl"
         app:srcCompat="@android:drawable/arrow_up_float" />
 
     <ImageButton
@@ -239,6 +252,7 @@
         android:layout_alignBottom="@+id/numberPeopleTxt"
         android:layout_toEndOf="@+id/textView6"
         android:background="@android:color/transparent"
+        android:onClick="decPpl"
         app:srcCompat="@android:drawable/arrow_down_float" />
 
 </RelativeLayout>
