@@ -102,14 +102,15 @@ public class MainActivity extends AppCompatActivity {
      * Calculates tip based on entered values and starts new activity
      */
     public void calculateTip(View target){
-        int bill = Integer.parseInt(billAmount.getText().toString());
-        int total = (bill*(tipValue/100)/pplValue);
+        double bill = Double.parseDouble( billAmount.getText().toString() );
+        double total = (bill*(1+(tipValue/100)));
 
         Intent i = new Intent(this, DataDisplay.class);
         i.putExtra("bill", bill);
         i.putExtra("total", total);
         i.putExtra("tip", tipValue);
         i.putExtra("people", pplValue);
+        startActivity(i);
 
     }
 
