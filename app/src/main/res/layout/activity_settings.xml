@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.team404.seg3125_lab_01.Settings">
+
+    <GridLayout
+        android:layout_width="386dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-1dp">
+
+        <TextView
+            android:id="@+id/languageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="100dp"
+            android:layout_row="0"
+            android:paddingLeft="25dp"
+            android:paddingTop="5dp"
+            android:text="Language:"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="@android:color/white" />
+
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/languages" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="50dp"
+            android:layout_row="1"
+            android:text="Currency:"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="@android:color/white" />
+
+        <Spinner
+            android:id="@+id/spinner8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </GridLayout>
+</android.support.constraint.ConstraintLayout>

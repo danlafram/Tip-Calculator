@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     //All numeric variables
 
-    private int tipValue = 15;
+    private double tipValue = 15;
     private int pplValue = 4;
 
 

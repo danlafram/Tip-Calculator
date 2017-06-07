@@ -20,7 +20,8 @@
             android:name=".DisplayData"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_display_data"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>

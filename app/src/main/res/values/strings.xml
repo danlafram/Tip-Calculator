@@ -73,6 +73,20 @@
         <item>20</item>
     </string-array>
 
+    <string-array name="languages">
+        <item>English</item>
+        <item>French</item>
+        <item>Spanish</item>
+        <item>Italian</item>
+    </string-array>
+
+    <string-array name="currencies">
+        <item>CAD</item>
+        <item>USD</item>
+        <item>Euro</item>
+        <item>Pound</item>
+    </string-array>
+
     <string name="title_activity_display_data">DisplayData</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
