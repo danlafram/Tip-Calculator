@@ -87,6 +87,13 @@
         <item>Pound</item>
     </string-array>
 
+    <string-array name="defaultTip">
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+        <item>25%</item>
+    </string-array>
+
     <string name="title_activity_display_data">DisplayData</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>

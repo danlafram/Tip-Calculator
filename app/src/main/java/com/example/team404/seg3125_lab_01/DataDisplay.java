@@ -55,6 +55,11 @@ public class DataDisplay extends AppCompatActivity {
 
     }
 
+    public void settingsTouch(View target){
+        Intent i = new Intent(this, Settings.class);
+        startActivity(i);
+    }
+
     public void restart(View target){
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);

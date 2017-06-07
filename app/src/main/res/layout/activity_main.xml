@@ -28,47 +28,8 @@
         android:background="@android:color/white"
         android:id="@+id/view" />
 
-    <RadioGroup
-        android:id="@+id/serviceRateGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
-        android:layout_alignEnd="@+id/view3"
-        android:layout_marginBottom="24dp"
-        android:orientation="horizontal"
-        android:layout_alignParentStart="true"
-        android:weightSum="1">
-
-        <RadioButton
-            android:id="@+id/badServiceRadio"
-            android:layout_width="30dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="30dp"
-            android:button="@drawable/v_dissatisfied" />
-
-        <RadioButton
-            android:id="@+id/goodServiceRadio"
-            style="@android:style/Widget.Material.CompoundButton.RadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="85dp"
-            android:layout_weight="0.13"
-            android:button="@drawable/satisfied"
-            android:checked="true"
-            android:textAlignment="center"
-            android:textSize="30sp" />
-
-        <RadioButton
-            android:id="@+id/greatServiceRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="90dp"
-            android:layout_weight="0.20"
-            android:button="@drawable/v_satisfied" />
-    </RadioGroup>
-
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/badText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/view2"
@@ -80,23 +41,23 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/goodText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignBottom="@+id/badText"
         android:layout_below="@+id/serviceRateGroup"
         android:layout_centerHorizontal="true"
         android:text="Good"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorAccent"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/greatText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignBaseline="@+id/goodText"
+        android:layout_alignBottom="@+id/goodText"
         android:layout_toEndOf="@+id/billAmount"
         android:text="Great"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
@@ -219,7 +180,7 @@
         android:id="@+id/tipIncrease"
         android:layout_width="40dp"
         android:layout_height="20dp"
-        android:layout_alignStart="@+id/textView2"
+        android:layout_alignStart="@+id/badText"
         android:layout_alignTop="@+id/tipPercentageTxt"
         android:background="@android:color/transparent"
         android:onClick="incTip"
@@ -254,5 +215,49 @@
         android:background="@android:color/transparent"
         android:onClick="decPpl"
         app:srcCompat="@android:drawable/arrow_down_float" />
+
+    <ImageButton
+        android:id="@+id/badService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:background="@android:color/transparent"
+        android:onClick="badServiceTouch"
+        app:srcCompat="@drawable/v_dissatisfied"
+        android:layout_above="@+id/badText"
+        android:layout_alignEnd="@+id/badText" />
+
+    <ImageButton
+        android:id="@+id/goodService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/badService"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:onClick="goodServiceTouch"
+        app:srcCompat="@drawable/satisfied" />
+
+    <ImageButton
+        android:id="@+id/greatService"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/goodService"
+        android:layout_toEndOf="@+id/pplIncrease"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:onClick="greatServiceTouch"
+        app:srcCompat="@drawable/v_satisfied" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:onClick="settingsTouch"
+        app:srcCompat="@android:drawable/ic_menu_manage"
+        android:layout_alignEnd="@+id/view3"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView13" />
 
 </RelativeLayout>

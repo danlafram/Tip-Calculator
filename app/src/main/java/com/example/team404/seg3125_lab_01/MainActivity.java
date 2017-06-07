@@ -1,5 +1,6 @@
 package com.example.team404.seg3125_lab_01;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tipPercentage;
     TextView numberOfPeople;
+    TextView badText;
+    TextView goodText;
+    TextView greatText;
 
+    ImageButton badService;
+    ImageButton goodService;
+    ImageButton greatService;
     ImageButton tipIncrease;
     ImageButton tipDecrease;
     ImageButton pplInc;
@@ -45,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
         tipPercentage = (TextView) findViewById(R.id.tipPercentageTxt);
         numberOfPeople = (TextView) findViewById(R.id.numberPeopleTxt);
+        badText = (TextView) findViewById(R.id.badText);
+        goodText = (TextView) findViewById(R.id.goodText);
+        greatText = (TextView) findViewById(R.id.greatText);
 
         billAmount = (EditText) findViewById(R.id.billAmount);
 
@@ -54,8 +64,43 @@ public class MainActivity extends AppCompatActivity {
         tipDecrease = (ImageButton) findViewById(R.id.tipDecrease);
         pplInc = (ImageButton) findViewById(R.id.pplIncrease);
         pplDec = (ImageButton) findViewById(R.id.pplDecrease);
+        badService = (ImageButton) findViewById(R.id.badService);
+        goodService = (ImageButton) findViewById(R.id.goodService);
+        greatService = (ImageButton) findViewById(R.id.greatService);
+
         calculateButton  = (Button) findViewById(R.id.calculateButton);
     }
+
+    public void badServiceTouch(View target){
+        badText.setTextColor(Color.parseColor("#FFFF4081"));
+        goodText.setTextColor(Color.parseColor("#FFFFFFFF"));
+        greatText.setTextColor(Color.parseColor("#FFFFFFFF"));
+        tipValue = 10;
+        tipPercentage.setText(String.valueOf(tipValue));
+    }
+
+    public void goodServiceTouch(View target){
+        badText.setTextColor(Color.parseColor("#FFFFFFFF"));
+        goodText.setTextColor(Color.parseColor("#FFFF4081"));
+        greatText.setTextColor(Color.parseColor("#FFFFFFFF"));
+        tipValue = 15;
+        tipPercentage.setText(String.valueOf(tipValue));
+    }
+
+    public void greatServiceTouch(View target){
+        badText.setTextColor(Color.parseColor("#FFFFFFFF"));
+        goodText.setTextColor(Color.parseColor("#FFFFFFFF"));
+        greatText.setTextColor(Color.parseColor("#FFFF4081"));
+        tipValue = 20;
+        tipPercentage.setText(String.valueOf(tipValue));
+    }
+
+    public void settingsTouch(View target){
+        Intent i = new Intent(this, Settings.class);
+        startActivity(i);
+    }
+
+
 
     /*
      * Increases value of tip by 5%
